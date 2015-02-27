@@ -9,8 +9,10 @@ Features:
 * Groupmanagement on server
 * Newslettermanagement on server
 
-More information at 
+## More
 
+Detailed information at http://www.christian-klisch.de/e-mail-newsletter-whitelist-send.html
+API dokumentation at https://www.newsletter2go.de/pr/api/Newsletter2Go_API_Doku_latest.pdf?c0fc87
 
 ## Contributors
 
