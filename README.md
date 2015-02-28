@@ -1,4 +1,4 @@
-# Newsletter2Go API for PHP
+# Newsletter2Go API wrapper for PHP
 
 This is a php plugin to send whitelisted e-mails via newsletter2go server. 
 
