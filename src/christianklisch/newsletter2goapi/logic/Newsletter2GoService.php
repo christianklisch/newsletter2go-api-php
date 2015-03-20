@@ -510,6 +510,43 @@ class Newsletter2GoService
     }
 
     /**
+     * Update newsletter-draft with selected recipients in newsletter object. Only possible with draft.
+     *
+     * @param $newsletter object
+     * @return \Newsletter2Go\Status
+     */
+    public function updateNewsletter($newsletter)
+    {
+        $params = array();
+        
+        if ($newsletter instanceof Newsletter && $newsletter->getId() > 0)
+            $params['id'] = $newsletter->getId();
+        
+        $params['name'] = $newsletter->getName();
+        $params['subject'] = $newsletter->getSubject();        
+        
+        if ($newsletter->getHtml())
+            $params['html'] = $newsletter->getHtml();
+        if ($newsletter->getText())
+            $params['text'] = $newsletter->getText();
+        
+        $params['from'] = $newsletter->getFrom();
+        $params['reply'] = $newsletter->getReply();     
+
+        if ($newsletter->getRef())
+            $params['reference'] = $newsletter->getRef();        
+        
+        $result = new Status($this->handleSendRequest('/de/api/set/newsletter/', $params));
+        
+        $nId = $result->getValue();
+        
+        foreach ($newsletter->getRecipients() as $rcp)
+            $this->addRecipient2Newsletter($nId, $rcp);
+        
+        return $result;        
+    }    
+    
+    /**
      * Add an recipient to existing newsletter.
      *
      * @param $newsletter int
