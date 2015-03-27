@@ -20,7 +20,7 @@ You can install this newsletter2go wrapper by using composer:
 
 ```
     "require": {
-        "christianklisch/newsletter2go-api-php": "v3.2"
+        "christianklisch/newsletter2go-api-php": "v3.3.1"
     }
 ```
 
